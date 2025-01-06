@@ -6,7 +6,13 @@
 #include "fix16.h"
 #include "qmtx.h"
 
-#include "app_helpers.h"
+
+#if (defined(__x86_64__) && defined(__linux__))
+	#define HLP_vPrintFloat(outbuf16, f, ip, dp) snprintf(outbuf16, 16, "%.*f", dp, f)
+#else
+	#include "app_helpers.h"
+#endif
+
 
 extern PRNG_stParms_t g_mxm_prng_instance;
 

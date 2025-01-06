@@ -8,7 +8,9 @@ message("+++ Using TOP_PROJECT_DIR '${TOP_PROJECT_DIR}'.")
 
 find_path (EXTERNAL_BENCH_SOURCE_DIR
   fix16.c
-  ${TOP_PROJECT_DIR}/../../fs_sofia/development/benchmark_applications/fixed_point
+  HINTS ${BENCH_LIB_DIR}/fixed_point
+  DOC "Find benchmark source code"
+  REQUIRED
 )
 
 GET_FILENAME_COMPONENT(EXTERNAL_BENCH_SOURCE_DIR     "${EXTERNAL_BENCH_SOURCE_DIR}/../"  REALPATH )

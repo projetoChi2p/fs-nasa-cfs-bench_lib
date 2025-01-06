@@ -22,7 +22,13 @@ extern "C" {
 
 typedef double _huffman_count_t;
 typedef double _huffman_prob_t;
+#if (__SIZEOF_INT__ == 4)
+typedef unsigned int _huffman_code_t;
+#elif #if (__SIZEOF_LONG__ == 4)
 typedef unsigned long _huffman_code_t;
+#else
+#error "32 bits integer type is unknown."
+#endif
 typedef unsigned char _huffman_bits_t;
 typedef unsigned short _huffman_symbol_t;
 
